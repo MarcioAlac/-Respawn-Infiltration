@@ -1,4 +1,4 @@
-params[['_mode', 1, [0]]];
+params[['_mode', 1, [0]], ['_playerPos', [], [[]]]];
 
 _helicopterVehicle = missionNamespace getVariable ['respawn_helicopter', objNull];
 
@@ -10,7 +10,7 @@ if(!alive _helicopterVehicle) exitWith {systemChat 'Erro -> Helicoptero não enc
 missionNamespace setVariable['originalHeliPos', getPosATL _helicopterVehicle];
 if (((getMarkerPos "helipos") isEqualTo [0,0,0]) and !isNil 'originalHeliPos') then {createMarker ["helipos", originalHeliPos]; systemChat 'narca cruada'} exitWith{systemChat str originalHeliPos};
 
-private _rallyPos           = position player;
+private _rallyPos           = if (_playerPos isEqualTo []) then {position player} else {_playerPos};
 private _maxRange           = 10000;
 private _minDistanceUnload  = 1100;
 private _maxHeight          = 300;

@@ -23,7 +23,7 @@ if (leader player isEqualTo player) then {
 
             if(!isNil '_ren' and !(_ren isEqualTo [])) then {
                 
-                [1] remoteExec ['soldierDeploy_fnc_vehicle_respawn_waypoint', 0, true];
+                [1, position _player] remoteExec ['soldierDeploy_fnc_vehicle_respawn_waypoint', 0, true];
 
             } else {
                 
@@ -45,7 +45,7 @@ if (leader player isEqualTo player) then {
 
             if(!isNil '_ren' and !(_ren isEqualTo [])) then {
 
-                [0] remoteExec ['soldierDeploy_fnc_vehicle_respawn_waypoint', 0, true];
+                [0, position _player] remoteExec ['soldierDeploy_fnc_vehicle_respawn_waypoint', 0, true];
 
             };
         },
